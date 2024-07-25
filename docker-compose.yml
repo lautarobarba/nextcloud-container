@@ -21,6 +21,8 @@ services:
     restart: always
     ports:
       - ${NEXTCLOUD_PORT}:80
+    depends_on:
+      - nextcloud_db
     links:
       - nextcloud_db
     volumes:
