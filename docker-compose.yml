@@ -32,3 +32,14 @@ services:
       - MYSQL_PASSWORD=${DB_PASSWORD}
       - MYSQL_USER=${DB_USER}
       - MYSQL_DATABASE=${DB_NAME}
+
+  nextcloud_cron:
+    container_name: nextcloud_cron
+    image: nextcloud:32.0
+    entrypoint: /cron.sh
+    env_file: .env
+    restart: always
+    volumes:
+      - ./nextcloud:/var/www/html
+    depends_on:
+      - nextcloud_app
