@@ -16,7 +16,7 @@ services:
 
   nextcloud_app:  
     container_name: nextcloud_app
-    image: nextcloud:32.0
+    image: nextcloud:33.0.5
     env_file: .env
     restart: always
     ports:
@@ -35,7 +35,7 @@ services:
 
   nextcloud_cron:
     container_name: nextcloud_cron
-    image: nextcloud:32.0
+    image: nextcloud:33.0.5
     entrypoint: /cron.sh
     env_file: .env
     restart: always
